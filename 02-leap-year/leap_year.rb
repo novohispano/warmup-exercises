@@ -14,8 +14,10 @@ class LeapYear
   def leap_year(year)
     case year
     when year % 4 == 0 then puts "#{year} it's a leap year"
-    when year % 100 == 0 then puts "#{year} it's a leap year"
-    when year % 400 == 0 then puts "#{year} it's a leap year"
+      unless year % 100 == 0 then puts "#{year} it's a leap year"
+        unless year % 400 == 0 then puts "#{year} it's a leap year"
+        end
+      end
     else puts "#{year} it's not a leap year"
     end
   end
