@@ -7,11 +7,11 @@ class HappyBirthday
     input = ""
     while input != "quit"
       printf "When where you born? "
-      input = gets.chomp
+      input = gets.chomp.to_i
       birthday = Date.new(input)
 
-      years = Date.now - birthday
-      years.each do { |year| puts "SPANK" }
+      years = DateTime.now - birthday
+      years.each { |year| puts "SPANK" }
     end
   end
 end
