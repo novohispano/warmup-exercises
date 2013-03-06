@@ -20,4 +20,3 @@ Remember to write failing tests for this.
 
 ## Source
 Inspired by one of the generated questions in the [Extreme Startup](https://github.com/rchatley/extreme_startup) game.
-
