@@ -8,7 +8,7 @@ class DNA
     sum = 0
     position = 0
 
-    length = @strand.count
+    length = split_strand.count
 
     @strand.first(length).each do |char|
       if char != split_strand[position]
