@@ -6,11 +6,19 @@ class DNA
   end
 
   def count(letter)
-    @string.find_all{ |char| char == letter }.count
+    unless valid_nucleotide?(letter)
+      raise ArgumentError.new("#{letter} is not a valid nucleotide.")
+    end
+    string.find_all{ |char| char == letter }.count
   end
 
   def nucleotide_counts
-    values = {'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0}
-    @string.group_by{ |char| count(char) }
+    value = {}
+    %w{A T C G}.each{ |letter| value[letter] = count(letter) }
+    value
+  end
+
+  def valid_nucleotide?(letter)
+    %w(A T C G U).include?(letter)
   end
 end
