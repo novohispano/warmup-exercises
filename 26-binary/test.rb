@@ -8,7 +8,6 @@ class BinaryTest < MiniTest::Unit::TestCase
   end
 
   def test_binary_10_is_decimal_2
-    skip
     assert_equal 2, Binary.new("10").to_decimal
   end
 
