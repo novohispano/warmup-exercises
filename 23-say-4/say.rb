@@ -7,35 +7,39 @@ class Say
 
   def in_english
     case number
-    when 0..9   then digits(number)
-    when 10..19 then teens(number)
-    when 100    then "one hundred"
+    when 0..19    then small_numbers(number)
+    when 100..999 then hundred(number)
     end
   end
 
-  # def tens
-  #   case number
-  #   when 0 then "zero"
-  #   when 1 then "one"
-  #   when 2 then "two"
-  #   when 3 then "zero"
-  #   when 4 then "one"
-  #   when 5 then "two"
-  #   when 6 then "two"
-  #   when 7 then "two"
-  #   when 8 then "zero"
-  #   when 9 then "one"
-  #   end
-  # end
-
-  def digits(number)
-    word_numbers = %w[ zero one two three four five six seven eight nine ]
-    word_numbers[number]
+  def small_numbers(number)
+    word_numbers = %w[ zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen ]
+    position = (number % 100)
+    word_numbers[position]
   end
 
-  def teens(number)
-    word_numbers = %w[ ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen ]
-    position = number % 10
-    word_numbers[position]
+  def tens(number)
+    p_number = number.to_s.split("")
+
+    p_number.to_i.each do |number|
+      if p_number > 0
+        word_number << small_numbers(number)
+      end
+      word_number
+    end
+
+    word_numbers = %w[ twenty thirty forty fifty sixty seventy eighty ninety ]
+    position = (number % 100) / 10 - 2
+    "#{word_numbers[position]}" + word_number
+  end
+
+  def hundred(number)
+    word_numbers_hundreds = %w[ one two three four five six seven eight nine ]
+    hundreds = (number / 100) - 1
+    if number > 100
+      "#{word_numbers_hundreds[hundreds]} hundred " << tens(number)
+    else
+      "#{word_numbers_hundreds[hundreds]} hundred"
+    end
   end
 end

@@ -16,12 +16,10 @@ class SayTest < MiniTest::Unit::TestCase
   end
 
   def test_120
-    skip
     assert_equal 'one hundred twenty', Say.new(120).in_english
   end
 
   def test_123
-    skip
     assert_equal 'one hundred twenty-three', Say.new(123).in_english
   end
 
