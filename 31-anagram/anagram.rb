@@ -11,7 +11,7 @@ class Anagram
     anagrams.each do |anagram|
       comparison = splitter(anagram)
 
-      if comparison.eql?(word)
+      if comparison == word
         result << anagram
       end
     end
