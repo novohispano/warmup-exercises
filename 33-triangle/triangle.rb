@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :unique_sides
+  attr_reader :unique_sides
 
   def initialize(a, b, c)
     sides = [a, b, c].sort
