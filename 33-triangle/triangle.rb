@@ -4,17 +4,20 @@ class Triangle
   def initialize(a, b, c)
     sides = [a, b, c].sort
     @unique_sides = sides.uniq.count
+
     triangle_validator(sides)
   end
 
   def kind
-    if unique_sides == 1
-      :equilateral
-    elsif unique_sides == 2
-      :isosceles
-    else
-      :scalene
-    end
+    triangle_classes[unique_sides]
+  end
+
+  def triangle_classes
+    {
+      1 => :equilateral,
+      2 => :isosceles,
+      3 => :scalene,
+    }
   end
 
   def triangle_validator(sides)
