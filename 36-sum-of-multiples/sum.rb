@@ -1,19 +1,19 @@
 class SumOfMultiples
   def self.to(input)
-    @multiples = []
+    @multiples = [0]
 
-    multiple_finder(multiples_of_three, input)
-    multiple_finder(multiples_of_five, input)
+    multiples(3, input)
+    multiples(5, input)
 
     add_multiples(@multiples)
   end
 
-  def self.multiple_finder(number_multiples, input)
-    number_multiples.each do |multiple|
-      if multiple < input
-        @multiples << multiple
-      end
+  def self.multiples(number, input)
+    while @multiples.last > input
+      multiplier += 1
+      @multiples << (number * multiplier)
     end
+    @multiples
   end
 
   def self.add_multiples(multiples)
