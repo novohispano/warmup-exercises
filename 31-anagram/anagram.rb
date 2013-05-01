@@ -2,14 +2,14 @@ class Anagram
   attr_accessor :word
 
   def initialize(input)
-    @word = splitter(input)
+    @word = char_sort(input)
   end
 
   def match(anagrams)
     result = []
 
     anagrams.each do |anagram|
-      comparison = splitter(anagram)
+      comparison = char_sort(anagram)
 
       if comparison == word
         result << anagram
@@ -19,7 +19,7 @@ class Anagram
     return result
   end
 
-  def splitter(input)
+  def char_sort(input)
     input.split('').sort
   end
 end
