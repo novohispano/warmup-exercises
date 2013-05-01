@@ -17,7 +17,6 @@ class SumTest < MiniTest::Unit::TestCase
   end
 
   def test_sum_to_1000
-    skip
     assert_equal 233168, SumOfMultiples.to(1000)
   end
 
